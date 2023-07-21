@@ -14,6 +14,7 @@ terraform {
 }
 
 provider "azurerm" {
+  
   # usando features para autenticar com as variáveis de ambiente
   # o acesso ao ambiente Cloud
   features {}

@@ -2,7 +2,7 @@
 resource "azurerm_resource_group" "gustavo_first_resource_group_terraform" {
 
   # O Nome que deve ser usado para este Grupo de Recursos. Alterar isso força a criação de um novo grupo de recursos.
-  name = "storage_acount_resource_group_terraform"
+  name = "storage_account_resource_group_terraform"
 
   # A região do Azure onde o grupo de recursos deve existir. Alterar isso força a criação de um novo grupo de recursos.
   location = var.location # "Brazil South"
@@ -15,7 +15,7 @@ resource "azurerm_resource_group" "gustavo_first_resource_group_terraform" {
 resource "azurerm_storage_account" "gustavo_first_storage_acount_terraform" {
 
   # Especifica o nome da conta de armazenamento. Somente caracteres alfanuméricos minúsculos são permitidos. Alterar isso força a criação de um novo recurso. Isso deve ser exclusivo em todo o serviço do Azure, não apenas no grupo de recursos.
-  name = "storageacountgustavolopes"
+  name = "storagegustavolopes"
 
   # O nome do grupo de recursos no qual criar a conta de armazenamento. Alterar isso força a criação de um novo recurso.
   resource_group_name = azurerm_resource_group.gustavo_first_resource_group_terraform.name
@@ -37,12 +37,12 @@ resource "azurerm_storage_account" "gustavo_first_storage_acount_terraform" {
 resource "azurerm_storage_container" "gustavo_first_storage_container_terraform" {
 
   # O nome do Contêiner que deve ser criado na Conta de Armazenamento. Alterar isso força a criação de um novo recurso.
-  name = ""
+  name = "imagens"
 
   # O nome da conta de armazenamento onde o contêiner deve ser criado. Alterar isso força a criação de um novo recurso.
   storage_account_name = azurerm_storage_account.gustavo_first_storage_acount_terraform.name
 
 
   # O nível de acesso configurado para este contêiner. Os valores possíveis são `blob`, `container` ou `private`. O padrão é `private`.
-  container_access_type = ""
+  container_access_type = "private"
 }
