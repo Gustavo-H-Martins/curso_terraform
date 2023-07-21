@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "gustavo_first_resource_group_terraform" {
   location = var.location # "Brazil South"
 
   # Um mapeamento de tags que devem ser atribuídos ao Grupo de Recursos.
-  tags = ""
+  tags = local.common_tags
 }
 
 # Gerencia uma conta de armazenamento do Azure.
@@ -30,7 +30,7 @@ resource "azurerm_storage_account" "gustavo_first_storage_acount_terraform" {
   account_replication_type = var.account_replication_type
 
   # Um mapeamento de tags para atribuir ao recurso.
-  tags = ""
+  tags = local.common_tags
 }
 
 # Gerencia um contêiner dentro de uma conta de armazenamento do Azure. 
