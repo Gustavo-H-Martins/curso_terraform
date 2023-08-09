@@ -68,7 +68,7 @@ resource "aws_security_group" "security_group" {
     */
   name = "security-group-terraform"
   # Descrição do grupo de segurança
-  description = "Concede permissão de entrada SSL/TLS a vpc"
+  description = "Concede permissao de entrada SSL-TLS a vpc"
   # ID da VPC. O padrão é a VPC padrão da região
   vpc_id = aws_vpc.vpc.id
   /* 
@@ -77,7 +77,7 @@ resource "aws_security_group" "security_group" {
     */
   ingress {
     # Descrição desta regra de entrada
-    description = "SSL/TLS da VPC"
+    description = "SSL-TLS da VPC"
     # Porta inicial (ou número do tipo ICMP se o protocolo for icmp ou icmpv6)
     from_port = 22
     # Porta do intervalo final (ou código ICMP se o protocolo for icmp)

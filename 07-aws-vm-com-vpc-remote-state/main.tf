@@ -17,7 +17,7 @@ terraform {
     # Isso pressupõe que temos um bucket criado chamado:
     bucket = "gustavolopes-remote-state"
     # O estado do Terraform é gravado na chave:
-    key = "aws-vpc/terraform.tfstate"
+    key = "aws-vm/terraform.tfstate"
     # Região para alocar o state
     region = "sa-east-1"
   }
@@ -35,5 +35,21 @@ provider "aws" {
       owner      = "gustavo.lopes"
       managed-by = "terraform"
     }
+  }
+}
+/*
+  A fonte de dados terraform_remote_state retornará todas as saídas do módulo raiz 
+  definidas no estado remoto referenciado (mas não nenhuma saída de módulos aninhados, 
+  a menos que sejam explicitamente geradas novamente na raiz)
+*/
+data "terraform_remote_state" "vpc" {
+  backend = "s3"
+  config = {
+    # Isso pressupõe que temos um bucket criado chamado:
+    bucket = "gustavolopes-remote-state"
+    # O estado do Terraform é gravado na chave:
+    key = "aws-vpc/terraform.tfstate"
+    # Região para alocar o state
+    region = "sa-east-1"
   }
 }
