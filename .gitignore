@@ -1,4 +1,2 @@
 # Ignore as credenciais.
-*aws.txt
-*azure.txt
-credencial_aws.txt
+*.txt
