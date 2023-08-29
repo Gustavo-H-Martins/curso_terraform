@@ -8,8 +8,18 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.14.0"
+      version = "4.12.1"
     }
+  }
+  # Armazena o estado como uma determinada chave em um determinado bucket no Amazon S3 .
+  # https://developer.hashicorp.com/terraform/language/settings/backends/s3
+  backend "s3" {
+    # Isso pressupõe que temos um bucket criado chamado:
+    bucket = "curso-terraform-gustavolopes"
+    # O estado do Terraform é gravado na chave:
+    key = "aws-vpc-for-expressions/terraform.tfstate"
+    # Região para alocar o state
+    region = "sa-east-1"
   }
 }
 
