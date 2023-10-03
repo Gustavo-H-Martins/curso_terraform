@@ -3,7 +3,7 @@ resource "aws_key_pair" "key" {
   # Nome do par de chaves.
   key_name = "aws-key"
   # Material de chave pública.
-  public_key = file("./aws-key.pub")
+  public_key = file(var.aws_pub_key)
 }
 
 # Fornece um recurso de instância do EC2.
